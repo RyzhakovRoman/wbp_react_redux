@@ -2,10 +2,69 @@
 
 import './menu/style.less';
 
+// ----------------------------------react
 import React from 'react';
-// import {createStore} from 'redux';
-import store from './components/redux/store';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 
+import todoApp from './components/react_redux_todo_list/reducers/index';
+import App from './components/react_redux_todo_list/App';
+
+// import list from './components/react_redux_todo_list/data/list';
+// import todosReducer from './components/react_redux_todo_list/reducers/todos';
+
+let store = createStore(todoApp);
+
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('cont')
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import FilterableProductTable from './components/FilterableProductTable';
+// import {products} from './components/products';
+// ReactDOM.render(
+//     <FilterableProductTable products={products}/>,
+//     document.getElementById('cont')
+// );
+
+
+
+
+
+// import React from 'react';
+// import store from './components/redux/store';
 // console.log({...{df: 'dfd'}, ...{re:'erer'}});
 //------------------------------------------reducer
 // function reducer(state, action) {
@@ -29,75 +88,37 @@ import store from './components/redux/store';
 //------------------------------------------store
 // const store = createStore(reducer, {counter: 0, issues: [], repository: ''});
 //------------------------------------------end_store
-
 //------------------------------------------store_subscribe
-store.subscribe(() => {
-    console.log('store changed', store.getState());
-});
+// store.subscribe(() => {
+//     console.log('store changed', store.getState());
+// });
 // ------------------------------------------store_subscribe
-
 // ------------------------------------------store_dispatch
-console.log(1);
-store.dispatch({
-    type: 'INCREMENT_COUNTER'
-});
-console.log(2);
-store.dispatch({
-    type: 'INCREMENT_COUNTER'
-});
-console.log(3);
-store.dispatch({
-    type: 'RESET_COUNTER'
-});
-console.log(4);
-store.dispatch({
-    type: 'UNKNOWN'
-});
-console.log(5);
-store.dispatch({
-    type: 'ISSUES_LOAD',
-    payload: [
-        {id: 1, name: 'first issues'},
-        {id: 2, name: 'second issues'}
-    ]
-});
-console.log(6);
-store.dispatch({
-
-});
+// console.log(1);
+// store.dispatch({
+//     type: 'INCREMENT_COUNTER'
+// });
+// console.log(2);
+// store.dispatch({
+//     type: 'INCREMENT_COUNTER'
+// });
+// console.log(3);
+// store.dispatch({
+//     type: 'RESET_COUNTER'
+// });
+// console.log(4);
+// store.dispatch({
+//     type: 'UNKNOWN'
+// });
+// console.log(5);
+// store.dispatch({
+//     type: 'ISSUES_LOAD',
+//     payload: [
+//         {id: 1, name: 'first issues'},
+//         {id: 2, name: 'second issues'}
+//     ]
+// });
 // ------------------------------------------end_store_dispatch
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -182,21 +203,6 @@ store.dispatch({
 
 
 
-
-
-// ----------------------------------react
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-//
-// import FilterableProductTable from './components/FilterableProductTable';
-//
-// import {products} from './components/products';
-//
-//
-// ReactDOM.render(
-//     <FilterableProductTable products={products}/>,
-//     document.getElementById('cont')
-// );
 
 
 

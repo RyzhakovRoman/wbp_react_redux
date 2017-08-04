@@ -1,4 +1,4 @@
-export default function(stateCounter, action) {
+export default function(stateCounter = 0, action) {
     switch (action.type) {
         case 'INCREMENT_COUNTER':
             return stateCounter + 1;

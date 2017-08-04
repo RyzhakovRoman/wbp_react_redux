@@ -61,12 +61,12 @@ var testprod =
 /******/ 	__webpack_require__.p = "./prod/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 237);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */
+/******/ ({
+
+/***/ 237:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -81,4 +81,5 @@ let men = new Menu('test');
 console.log(name);
 
 /***/ })
-/******/ ]);
+
+/******/ });
