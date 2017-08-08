@@ -8,18 +8,42 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 
-import todoApp from './components/react_redux_todo_list/reducers/index';
-import App from './components/react_redux_todo_list/App';
+import reducers from './components/productTable/reducers/reducers';
 
-// import list from './components/react_redux_todo_list/data/list';
-// import todosReducer from './components/react_redux_todo_list/reducers/todos';
+import App from './components/App';
 
-let store = createStore(todoApp);
+let store = createStore(reducers);
+
+store.dispatch({
+    type: 'ADD_PRODUCT',
+    product: {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"}
+});
+store.dispatch({
+    type: 'ADD_PRODUCT',
+    product: {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"}
+});
+store.dispatch({
+    type: 'ADD_PRODUCT',
+    product: {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"}
+});
+store.dispatch({
+    type: 'ADD_PRODUCT',
+    product: {category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"}
+});
+store.dispatch({
+    type: 'ADD_PRODUCT',
+    product: {category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"}
+});
+store.dispatch({
+    type: 'ADD_PRODUCT',
+    product: {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
+});
+// console.log(store.getState());
 
 
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <App />
     </Provider>,
     document.getElementById('cont')
 );
@@ -52,12 +76,100 @@ ReactDOM.render(
 
 
 
-// import FilterableProductTable from './components/FilterableProductTable';
-// import {products} from './components/products';
+
 // ReactDOM.render(
-//     <FilterableProductTable products={products}/>,
+//     <Provider store={store}>
+//         <FilterableProductTable products={products}/>
+//     </Provider>,
 //     document.getElementById('cont')
 // );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------пример для comp
+// import todoApp from './components2/react_redux_todo_list/reducers/index';
+// import App from './components2/react_redux_todo_list/App';
+//
+// let store = createStore(todoApp);
+//
+// store.dispatch(
+//     {
+//         type: 'ADD_TODO',
+//         id: 0,
+//         text: 'Задача 0',
+//         completed: false
+//     }
+// );
+// store.dispatch(
+//     {
+//         type: 'ADD_TODO',
+//         id: 1,
+//         text: 'Задача 1',
+//         completed: true
+//     }
+// );
+// store.dispatch(
+//     {
+//         type: 'ADD_TODO',
+//         id: 2,
+//         text: 'Задача 2',
+//         completed: false
+//     }
+// );
+// store.dispatch(
+//     {
+//         type: 'ADD_TODO',
+//         id: 3,
+//         text: 'Задача 3',
+//         completed: true
+//     }
+// );
+//
+//
+// ReactDOM.render(
+//     <Provider store={store}>
+//         <App/>
+//     </Provider>,
+//     document.getElementById('cont')
+// );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

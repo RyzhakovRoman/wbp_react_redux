@@ -7,15 +7,15 @@ import VisibleTodoList from './containers/VisibleTodoList';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        console.log('App component');
+        console.log('App constructor');
         console.log(props);
     }
     render() {
         return (
             <div>
-                {/*<AddTodo />*/}
+                <AddTodo />
                 <VisibleTodoList />
-                {/*<Footer />*/}
+                <Footer />
             </div>
         )
     }

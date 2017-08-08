@@ -8,7 +8,6 @@ class TodoList extends React.Component {
         console.log(props);
     }
     checking(array) {
-        console.log("чет есть");
         return array.map(todo =>
             <Todo key={todo.id} {...todo} onClick={()=>this.props.onTodoClick(todo.id)} />
         )

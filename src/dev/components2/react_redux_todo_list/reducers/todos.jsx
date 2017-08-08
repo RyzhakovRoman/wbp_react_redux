@@ -6,13 +6,12 @@ const todo = (state, action) => {
             return {
                 id: action.id,
                 text: action.text,
-                completed: false
+                completed: action.completed
             };
         case 'TOGGLE_TODO':
             if (state.id !== action.id) {
                 return state
             }
-
             return Object.assign({}, state, {
                 completed: !state.completed
             });
@@ -22,10 +21,8 @@ const todo = (state, action) => {
     }
 };
 
-const todos = (state = list, action) => {
-    console.log('reducer todo');
-    console.log(state);
-
+const todos = (state = [], action) => {
+    console.log('todos Reducer');
     switch (action.type) {
         case 'ADD_TODO':
             return [

@@ -4,6 +4,7 @@ import FilterLink from './containers/FilterLink';
 class Footer extends React.Component {
     constructor(props) {
         super(props);
+        console.log('Footer');
         console.log(props);
     }
     render() {
@@ -11,7 +12,7 @@ class Footer extends React.Component {
             <p>
                 Show: {" "}
                 <FilterLink filter="SHOW_ALL">
-                    ALL
+                    All
                 </FilterLink>
                 {", "}
                 <FilterLink filter="SHOW_ACTIVE">

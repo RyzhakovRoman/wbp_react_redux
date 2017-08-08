@@ -1,27 +1,28 @@
 import React from 'react';
-import Product from './ProductRow';
-import Category from './ProductCategoryRow';
+
+import ProductCategoryRow from './ProductCategoryRow';
+import ProductRow from './ProductRow';
 
 export default class ProductTable extends React.Component {
-
     render() {
         let rows = [];
-        let lastCategory = '';
+        let lastCategory = null;
         let i = 0;
 
-        this.props.products.forEach((product, index) => {
+        this.props.products.forEach((product) => {
             if (product.name.indexOf(this.props.filterText) === -1 || (!product.stocked && this.props.inStockOnly)) {
                 return;
             }
             if (product.category !== lastCategory) {
-                rows.push(<Category category={product.category} key={product.category + i} />);
+                rows.push(<ProductCategoryRow category={product.category} key={product.category + i} />);
                 i++;
             }
-            rows.push(<Product product={product} handlerDeletedProduct={()=>this.props.handlerDeletedProduct(index)} key={i} />);
+            // console.log(this);
+            rows.push(<ProductRow product={product} onDeleteProduct={this.props.onDeleteProduct} key={i} />);
             lastCategory = product.category;
             i++;
         });
-
+        // console.dir(rows);
         return (
             <table>
                 <thead>
@@ -35,4 +36,3 @@ export default class ProductTable extends React.Component {
         );
     }
 }
-
