@@ -3,7 +3,6 @@ import {toggleTodo} from '../actions/index';
 import TodoList from '../TodoList';
 
 function getVisibleTodos(todos, filter = 'SHOW_ALL') {
-    console.log('get Visible Todos');
     switch (filter) {
         case 'SHOW_ALL':
             return todos;

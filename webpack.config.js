@@ -7,7 +7,8 @@ module.exports = {
     context: dev,
     entry: {
         appprod: './app',
-        testprod: './test'
+        testprod: './test',
+        calcprod: './calc/app',
     },
     output: {
         path: prod,
@@ -40,11 +41,11 @@ module.exports = {
             }
         ]
     },
-    // plugins: [
-    //     new webpack.optimize.CommonsChunkPlugin({
-    //         name: 'common',
-    //         minChunks: 2,
-    //         chunks: ['appprod', 'testprod']
-    //     })
-    // ]
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'common',
+            minChunks: 2,
+            chunks: ['appprod', 'testprod', 'calcprod']
+        })
+    ]
 };

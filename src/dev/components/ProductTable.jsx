@@ -35,4 +35,3 @@ export default class ProductTable extends React.Component {
         );
     }
 }
-
