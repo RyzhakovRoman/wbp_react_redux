@@ -1,0 +1,8 @@
+.ul {
+    width: 130px;
+    height: 100px;
+    overflow: auto;
+}
+.ul > li {
+    cursor: pointer;
+}
