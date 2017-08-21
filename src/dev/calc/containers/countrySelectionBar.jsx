@@ -1,30 +1,8 @@
 import {connect} from 'react-redux';
 
 import component from '../components/countrySelectionBar';
-// import {addArrayCountries} from '../actions/countriesActions';
-// import {setStateDownloadStartedCountry, setStateCountriesLoaded, setStateLoadingError} from '../actions/downloadCountriesActions';
 import {changeCountryFilterText} from "../actions/countryFilterTextActions";
-
-// function downloadData(dispatch) {
-//     dispatch(setStateDownloadStartedCountry());
-//
-//     let promise = fetch('./../php/calc.php');
-//     promise
-//         .then((response) => {
-//             console.log('success');
-//             return response.text();
-//         })
-//         .then((resp) => {
-//
-//             let arrayCountries = JSON.parse(resp);
-//             dispatch(setStateCountriesLoaded());
-//             dispatch(addArrayCountries(arrayCountries))
-//         })
-//         .catch((error) => {
-//             console.log('error');
-//             dispatch(setStateLoadingError());
-//         });
-// }
+import {changeCountry} from "../actions/countriesActions";
 
 function getListOfEligibleCountries (countries, text = '') {
     text = text.toLowerCase();
@@ -38,27 +16,21 @@ function getListOfEligibleCountries (countries, text = '') {
 }
 
 function mapStateToProps(state) {
+    console.log('C MapS To P', state);
     return {
         countries: getListOfEligibleCountries(state.countries, state.countryFilterText),
-        data: state.data
-        // downloadCountries: state.downloadCountries
+        state: state,
+        activeCountry: state.data.country,
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        // downloadListCountries: () => {
-        //     dispatch
-        // }
-
-        sendFilterTextToState: (text) => {
+        sendFilterTextAndTextToState: (text) => {
             console.log('send');
-            dispatch(changeCountryFilterText(text))
+            dispatch(changeCountryFilterText(text));
+            dispatch(changeCountry(text));
         }
-
-        // downloadCountriesInServer: () => {
-        //     downloadData(dispatch);
-        // }
     }
 }
 

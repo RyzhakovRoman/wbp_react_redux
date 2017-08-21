@@ -1,31 +1,31 @@
 var calcprod =
 webpackJsonp_name_([0],{
 
-/***/ 231:
+/***/ 232:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(232);
+__webpack_require__(233);
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(64);
+var _reactDom = __webpack_require__(65);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(33);
+var _reactRedux = __webpack_require__(17);
 
 var _redux = __webpack_require__(34);
 
-var _index = __webpack_require__(234);
+var _index = __webpack_require__(235);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _calc = __webpack_require__(239);
+var _calc = __webpack_require__(240);
 
 var _calc2 = _interopRequireDefault(_calc);
 
@@ -38,40 +38,21 @@ store.dispatch({
     countries: ['Таиланд', 'Турция', 'Египет', 'Чехия', 'США', 'ОАЭ', 'Алжир', 'Армения', 'Бельгия', 'Бразилия', 'Болгария', 'Вьетнам', 'Гаити', 'Германия', 'Грузия', 'Дания', 'Индия', 'Ирландия', 'Италия', 'Кипр', 'Казахстан']
 });
 
-// console.log(store.getState());
-
 _reactDom2.default.render(_react2.default.createElement(
     _reactRedux.Provider,
     { store: store },
     _react2.default.createElement(_calc2.default, null)
 ), document.getElementById('calc'));
 
-// let count = 'Таиланд';
-// let text = 'Та';
-// count.toLowerCase();
-// text.toLowerCase();
-// console.log(count.toLowerCase().indexOf(text.toLowerCase()));
-
-
-// let promise = fetch('./../php/calc.php');
-//
-// promise
-//     .then(function (response) {
-//         return response.text();
-//     })
-//     .then(function (resp) {
-//         console.dir(JSON.parse(resp))
-//     });
-
 /***/ }),
 
-/***/ 232:
+/***/ 233:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(233);
+var content = __webpack_require__(234);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -79,7 +60,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(56)(content, options);
+var update = __webpack_require__(57)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -97,10 +78,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 233:
+/***/ 234:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(55)(undefined);
+exports = module.exports = __webpack_require__(56)(undefined);
 // imports
 
 
@@ -112,7 +93,7 @@ exports.push([module.i, ".ul {\r\n    width: 130px;\r\n    height: 100px;\r\n   
 
 /***/ }),
 
-/***/ 234:
+/***/ 235:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -124,7 +105,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(34);
 
-var _countriesReducer = __webpack_require__(235);
+var _countriesReducer = __webpack_require__(236);
 
 var _countriesReducer2 = _interopRequireDefault(_countriesReducer);
 
@@ -136,7 +117,7 @@ var _dataReducer = __webpack_require__(238);
 
 var _dataReducer2 = _interopRequireDefault(_dataReducer);
 
-var _costReducer = __webpack_require__(253);
+var _costReducer = __webpack_require__(239);
 
 var _costReducer2 = _interopRequireDefault(_costReducer);
 
@@ -153,7 +134,7 @@ exports.default = (0, _redux.combineReducers)({
 
 /***/ }),
 
-/***/ 235:
+/***/ 236:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -246,25 +227,60 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+exports.default = function () {
+    var prevState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { value: 0, requestState: 'notRequested' };
+    var action = arguments[1];
+
+    var newState = Object.assign({}, prevState);
+    switch (action.type) {
+        case 'CHANGE_TO_SUCCESS':
+            newState.requestState = action.requestState;
+            return newState;
+        case 'CHANGE_TO_ERROR':
+            newState.requestState = action.requestState;
+            return newState;
+        case 'CHANGE_TO_LOADED':
+            newState.requestState = action.requestState;
+            return newState;
+        case 'CHANGE_COST_VALUE':
+            newState.value = action.value;
+            return newState;
+        default:
+            return prevState;
+    }
+};
+
+/***/ }),
+
+/***/ 240:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _countrySelectionBar = __webpack_require__(240);
+var _countrySelectionBar = __webpack_require__(241);
 
 var _countrySelectionBar2 = _interopRequireDefault(_countrySelectionBar);
 
-var _selectionDatesOfTravel = __webpack_require__(249);
+var _selectionDatesOfTravel = __webpack_require__(246);
 
 var _selectionDatesOfTravel2 = _interopRequireDefault(_selectionDatesOfTravel);
 
-var _selectionDateOfBirth = __webpack_require__(251);
+var _selectionDateOfBirth = __webpack_require__(248);
 
 var _selectionDateOfBirth2 = _interopRequireDefault(_selectionDateOfBirth);
 
-var _cost = __webpack_require__(254);
+var _cost = __webpack_require__(250);
 
 var _cost2 = _interopRequireDefault(_cost);
 
@@ -306,7 +322,7 @@ exports.default = Calc;
 
 /***/ }),
 
-/***/ 240:
+/***/ 241:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -316,36 +332,17 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactRedux = __webpack_require__(33);
+var _reactRedux = __webpack_require__(17);
 
-var _countrySelectionBar = __webpack_require__(241);
+var _countrySelectionBar = __webpack_require__(242);
 
 var _countrySelectionBar2 = _interopRequireDefault(_countrySelectionBar);
 
-var _countryFilterTextActions = __webpack_require__(248);
+var _countryFilterTextActions = __webpack_require__(245);
+
+var _countriesActions = __webpack_require__(253);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// function downloadData(dispatch) {
-//     dispatch(setStateDownloadStartedCountry());
-//
-//     let promise = fetch('./../php/calc.php');
-//     promise
-//         .then((response) => {
-//             console.log('success');
-//             return response.text();
-//         })
-//         .then((resp) => {
-//
-//             let arrayCountries = JSON.parse(resp);
-//             dispatch(setStateCountriesLoaded());
-//             dispatch(addArrayCountries(arrayCountries))
-//         })
-//         .catch((error) => {
-//             console.log('error');
-//             dispatch(setStateLoadingError());
-//         });
-// }
 
 function getListOfEligibleCountries(countries) {
     var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
@@ -359,32 +356,23 @@ function getListOfEligibleCountries(countries) {
         }
     });
 }
-// import {addArrayCountries} from '../actions/countriesActions';
-// import {setStateDownloadStartedCountry, setStateCountriesLoaded, setStateLoadingError} from '../actions/downloadCountriesActions';
-
 
 function mapStateToProps(state) {
+    console.log('C MapS To P', state);
     return {
         countries: getListOfEligibleCountries(state.countries, state.countryFilterText),
-        data: state.data
-        // downloadCountries: state.downloadCountries
+        state: state,
+        activeCountry: state.data.country
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        // downloadListCountries: () => {
-        //     dispatch
-        // }
-
-        sendFilterTextToState: function sendFilterTextToState(text) {
+        sendFilterTextAndTextToState: function sendFilterTextAndTextToState(text) {
             console.log('send');
             dispatch((0, _countryFilterTextActions.changeCountryFilterText)(text));
+            dispatch((0, _countriesActions.changeCountry)(text));
         }
-
-        // downloadCountriesInServer: () => {
-        //     downloadData(dispatch);
-        // }
     };
 }
 
@@ -392,7 +380,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
-/***/ 241:
+/***/ 242:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -404,11 +392,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _country = __webpack_require__(242);
+var _country = __webpack_require__(243);
 
 var _country2 = _interopRequireDefault(_country);
 
@@ -431,12 +419,6 @@ var countrySelectionBar = function (_React$Component) {
 
     _createClass(countrySelectionBar, [{
         key: 'render',
-
-
-        // outputConsole() {
-        //     console.log(this.refs.country.value);
-        // }
-
         value: function render() {
             var _this2 = this;
 
@@ -456,8 +438,8 @@ var countrySelectionBar = function (_React$Component) {
                 ),
                 _react2.default.createElement('br', null),
                 _react2.default.createElement('input', { type: 'text', ref: 'country', onChange: function onChange() {
-                        _this2.props.sendFilterTextToState(_this2.refs.country.value);
-                    } }),
+                        _this2.props.sendFilterTextAndTextToState(_this2.refs.country.value);
+                    }, value: this.props.activeCountry }),
                 _react2.default.createElement(
                     'ul',
                     { className: 'ul' },
@@ -474,7 +456,7 @@ exports.default = countrySelectionBar;
 
 /***/ }),
 
-/***/ 242:
+/***/ 243:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -484,13 +466,13 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactRedux = __webpack_require__(33);
+var _reactRedux = __webpack_require__(17);
 
-var _country = __webpack_require__(243);
+var _country = __webpack_require__(244);
 
 var _country2 = _interopRequireDefault(_country);
 
-var _dataActions = __webpack_require__(245);
+var _dataActions = __webpack_require__(55);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -510,7 +492,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToState)(
 
 /***/ }),
 
-/***/ 243:
+/***/ 244:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -522,7 +504,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -574,47 +556,6 @@ exports.default = Country;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.changeStartDate = changeStartDate;
-exports.changeEndDate = changeEndDate;
-exports.changeCountry = changeCountry;
-exports.changeDateOfBirth = changeDateOfBirth;
-function changeStartDate(date) {
-    return {
-        type: 'CHANGE_DATA_START_DATE',
-        startDate: date
-    };
-}
-function changeEndDate(date) {
-    return {
-        type: 'CHANGE_DATA_END_DATE',
-        endDate: date
-    };
-}
-function changeCountry(country) {
-    return {
-        type: 'CHANGE_DATA_COUNTRY',
-        country: country
-
-    };
-}
-function changeDateOfBirth(date) {
-    return {
-        type: 'CHANGE_DATA_DATE_OF_BIRTH',
-        dateOfBirth: date
-    };
-}
-
-/***/ }),
-
-/***/ 248:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 exports.changeCountryFilterText = changeCountryFilterText;
 function changeCountryFilterText(text) {
     return {
@@ -625,7 +566,7 @@ function changeCountryFilterText(text) {
 
 /***/ }),
 
-/***/ 249:
+/***/ 246:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -635,13 +576,13 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactRedux = __webpack_require__(33);
+var _reactRedux = __webpack_require__(17);
 
-var _selectionDatesOfTravel = __webpack_require__(250);
+var _selectionDatesOfTravel = __webpack_require__(247);
 
 var _selectionDatesOfTravel2 = _interopRequireDefault(_selectionDatesOfTravel);
 
-var _dataActions = __webpack_require__(245);
+var _dataActions = __webpack_require__(55);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -676,7 +617,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
-/***/ 250:
+/***/ 247:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -688,7 +629,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -752,7 +693,7 @@ exports.default = SelectionDatesOfTravel;
 
 /***/ }),
 
-/***/ 251:
+/***/ 248:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -762,13 +703,13 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _reactRedux = __webpack_require__(33);
+var _reactRedux = __webpack_require__(17);
 
-var _selectionDateOfBirth = __webpack_require__(252);
+var _selectionDateOfBirth = __webpack_require__(249);
 
 var _selectionDateOfBirth2 = _interopRequireDefault(_selectionDateOfBirth);
 
-var _dataActions = __webpack_require__(245);
+var _dataActions = __webpack_require__(55);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -791,7 +732,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
-/***/ 252:
+/***/ 249:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -803,7 +744,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -853,7 +794,7 @@ exports.default = SelectionDateOfBirth;
 
 /***/ }),
 
-/***/ 253:
+/***/ 250:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -863,59 +804,59 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-exports.default = function () {
-    var prevState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var action = arguments[1];
+var _reactRedux = __webpack_require__(17);
 
-    var newState = Object.assign({}, prevState);
-    switch (action.type) {
-        case 'CHANGE_COST_COUNTRY':
-            newState.country = action.country;
-            return newState;
-        case 'CHANGE_DATA_DATE_OF_BIRTH':
-            newState.dateOfBirth = action.dateOfBirth;
-            return newState;
-        default:
-            return prevState;
-    }
-};
-
-/***/ }),
-
-/***/ 254:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _reactRedux = __webpack_require__(33);
-
-var _cost = __webpack_require__(255);
+var _cost = __webpack_require__(251);
 
 var _cost2 = _interopRequireDefault(_cost);
 
+var _costActions = __webpack_require__(252);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function checkDataForCalculation(data) {
+    return !!(data.country && data.dateOfBirth && data.startDate && data.endDate);
+}
+
+function calculateCost(dispatch, data) {
+    if (checkDataForCalculation(data)) {
+        dispatch((0, _costActions.changeRequestStateToLoaded)());
+
+        var promise = fetch('/webpack/php/calc.php');
+        promise.then(function (response) {
+            var prms = response.text();
+            prms.then(function (resp) {
+                console.log('стоимость расчитана', JSON.parse(resp));
+                var cost = JSON.parse(resp).cost;
+                dispatch((0, _costActions.changeRequestStateToSuccess)());
+                dispatch((0, _costActions.changeCostValue)(cost));
+            });
+        });
+    }
+}
 
 function mapStateToProps(state) {
     return {
-        cost: getCost(state),
-        costRequest: getCostRecuest(state)
+        cost: state.cost.value,
+        costRequestStatus: state.cost.requestState,
+        data: state.data
     };
 }
 
-function mapDicpatchToProps(dispatch) {
-    return {};
+function mapDispatchToProps(dispatch) {
+    return {
+        sendRequestForCostCalculation: function sendRequestForCostCalculation(data) {
+            console.log('sent');
+            calculateCost(dispatch, data);
+        }
+    };
 }
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDicpatchToProps)(_cost2.default);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_cost2.default);
 
 /***/ }),
 
-/***/ 255:
+/***/ 251:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -927,7 +868,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -949,12 +890,38 @@ var Cost = function (_React$Component) {
     }
 
     _createClass(Cost, [{
+        key: 'getRequestState',
+        value: function getRequestState() {
+            return this.props.costRequestStatus == 'success' ? 'Цена усешно расчитана' : this.props.costRequestStatus == 'error' ? 'Ошибка расчета' : this.props.costRequestStatus == 'loaded' ? 'Цена расчитывается' : 'Цена не запрашивалась';
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
+            console.log('Cost', this.props);
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement('span', null)
+                _react2.default.createElement(
+                    'span',
+                    null,
+                    this.getRequestState()
+                ),
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                    'span',
+                    null,
+                    this.props.cost,
+                    ' \u0440\u0443\u0431.'
+                ),
+                _react2.default.createElement(
+                    'button',
+                    { onClick: function onClick() {
+                            _this2.props.sendRequestForCostCalculation(_this2.props.data);
+                        } },
+                    '\u0420\u0430\u0441\u0447\u0438\u0442\u0430\u0442\u044C'
+                )
             );
         }
     }]);
@@ -964,6 +931,121 @@ var Cost = function (_React$Component) {
 
 exports.default = Cost;
 
+/***/ }),
+
+/***/ 252:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.changeRequestStateToSuccess = changeRequestStateToSuccess;
+exports.changeRequestStateToError = changeRequestStateToError;
+exports.changeRequestStateToLoaded = changeRequestStateToLoaded;
+exports.changeCostValue = changeCostValue;
+function changeRequestStateToSuccess() {
+    return {
+        type: 'CHANGE_TO_SUCCESS',
+        requestState: 'success'
+    };
+}
+
+function changeRequestStateToError() {
+    return {
+        type: 'CHANGE_TO_ERROR',
+        requestState: 'error'
+    };
+}
+
+function changeRequestStateToLoaded() {
+    return {
+        type: 'CHANGE_TO_LOADED',
+        requestState: 'loaded'
+    };
+}
+
+function changeCostValue(cost) {
+    return {
+        type: 'CHANGE_COST_VALUE',
+        value: cost
+    };
+}
+
+// export function calculateCost() {
+//    
+// }
+
+/***/ }),
+
+/***/ 253:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.changeCountry = changeCountry;
+function changeCountry(country) {
+    return {
+        type: 'CHANGE_DATA_COUNTRY',
+        country: country
+
+    };
+}
+
+// export function addArrayCountries(arrayCountries) {
+//     return {
+//         type: 'ADD_ARRAY_COUNTRIES',
+//         countries: arrayCountries
+//     }
+// }
+
+/***/ }),
+
+/***/ 55:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.changeStartDate = changeStartDate;
+exports.changeEndDate = changeEndDate;
+exports.changeCountry = changeCountry;
+exports.changeDateOfBirth = changeDateOfBirth;
+function changeStartDate(date) {
+    return {
+        type: 'CHANGE_DATA_START_DATE',
+        startDate: date
+    };
+}
+function changeEndDate(date) {
+    return {
+        type: 'CHANGE_DATA_END_DATE',
+        endDate: date
+    };
+}
+function changeCountry(country) {
+    return {
+        type: 'CHANGE_DATA_COUNTRY',
+        country: country
+
+    };
+}
+function changeDateOfBirth(date) {
+    return {
+        type: 'CHANGE_DATA_DATE_OF_BIRTH',
+        dateOfBirth: date
+    };
+}
+
 /***/ })
 
-},[231]);
+},[232]);

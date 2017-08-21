@@ -3,11 +3,6 @@ import React from 'react';
 import Country from '../containers/country';
 
 export default class countrySelectionBar extends React.Component {
-
-    // outputConsole() {
-    //     console.log(this.refs.country.value);
-    // }
-
     render() {
         console.log('countrySelectionBar', this.props);
 
@@ -19,7 +14,7 @@ export default class countrySelectionBar extends React.Component {
             <div>
                 <span>Введите страну</span>
                 <br/>
-                <input type="text" ref="country" onChange={() => { this.props.sendFilterTextToState(this.refs.country.value) }}/>
+                <input type="text" ref="country" onChange={() => {this.props.sendFilterTextAndTextToState(this.refs.country.value)}} value={this.props.activeCountry}/>
                 <ul className="ul">
                     {tagListOfCountries}
                 </ul>

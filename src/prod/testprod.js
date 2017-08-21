@@ -1,7 +1,7 @@
 var testprod =
 webpackJsonp_name_([2],{
 
-/***/ 230:
+/***/ 231:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17,4 +17,4 @@ console.log(name);
 
 /***/ })
 
-},[230]);
+},[231]);
